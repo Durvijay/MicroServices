@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://productservices.com/ProductsServicesOpertions" 
+elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" 
+xmlns:tns="http://productservices.com/ProductsServicesOpertions" xmlns:Q1="http://productservices.com/Products">
+
+    <import schemaLocation="Products.xsd" namespace="http://productservices.com/Products"></import>
+    <complexType name="getAllProductsRequest"></complexType>
+
+    <complexType name="getAllProductsResponse">
+    	<sequence>
+    		<element name="products" type="Q1:Products" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="getOrderByIdRequest">
+    	<sequence>
+    		<element name="orderId" type="integer"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="getOrderByIdResponse">
+    	<sequence>
+    		<element name="order" type="Q1:Orders"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="getAllOrdersOfCustomerRequest">
+    	<sequence>
+    		<element name="customerId" type="integer"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="getAllOrdersOfCustomerResponse">
+    	<sequence>
+    		<element name="orders" type="Q1:Orders" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="getAllOrdersOfCustomerRequest" type="tns:getAllOrdersOfCustomerRequest"></element>
+
+    <element name="getAllOrdersOfCustomerResponse" type="tns:getAllOrdersOfCustomerResponse"></element>
+
+    <element name="getAllProductsRequest" type="tns:getAllProductsRequest"></element>
+
+    <element name="getAllProductsResponse" type="tns:getAllProductsResponse"></element>
+
+    <element name="getOrderByIdRequest" type="tns:getOrderByIdRequest"></element>
+
+    <element name="getOrderByIdResponse" type="tns:getOrderByIdResponse"></element>
+
+    <complexType name="getfilteredProductRequest">
+    	<sequence>
+    		<element name="description" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="getfilteredProductResponse">
+    	<sequence>
+    		<element name="products" type="Q1:Products" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="getfilteredProductRequest" type="tns:getfilteredProductRequest"></element>
+
+    <element name="getfilteredProductResponse" type="tns:getfilteredProductResponse"></element>
+</schema>

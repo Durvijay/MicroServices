@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://products.com/Products" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://products.com/Products">
+
+
+    <xsd:element name="Products">
+    	<xsd:complexType>
+   			<xsd:sequence>
+				<xsd:element name="productId" type="xsd:integer"></xsd:element>
+				<xsd:element name="productName" type="xsd:string"></xsd:element>
+				<xsd:element name="productDescription" type="xsd:string"></xsd:element>
+				<xsd:element name="typeCode" type="xsd:string"></xsd:element>
+				<xsd:element name="price" type="xsd:double"></xsd:element>
+			</xsd:sequence>
+    </xsd:complexType>
+    </xsd:element>
+   <xsd:element name="Orders">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="orderId" type="xsd:integer"></xsd:element>
+				<xsd:element name="customerId" type="xsd:integer"></xsd:element>
+				<xsd:element name="customerPaymentId" type="xsd:integer"></xsd:element>
+
+				<xsd:element name="products">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element ref="Products" minOccurs="1" maxOccurs="unbounded" />
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+
+
+    <xsd:complexType name="Products"></xsd:complexType>
+
+    <xsd:complexType name="Orders">
+    	<xsd:sequence>
+				<xsd:element name="orderId" type="xsd:integer"></xsd:element>
+				<xsd:element name="customerId" type="xsd:integer"></xsd:element>
+				<xsd:element name="customerPaymentId" type="xsd:integer"></xsd:element>
+
+				<xsd:element name="products">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element ref="Products" minOccurs="1" maxOccurs="unbounded" />
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

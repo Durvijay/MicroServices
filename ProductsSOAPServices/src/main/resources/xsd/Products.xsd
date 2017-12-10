@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://productservices.com/Products" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://productservices.com/Products">
+
+    <complexType name="Orders">
+    	<sequence>
+    		<element name="orderId" type="integer"></element>
+    		<element name="customerId" type="integer"></element>
+    		<element name="customerPaymentId" type="integer"></element>
+    		<element name="products" type="tns:Products" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="Products">
+    	<sequence>
+    		<element name="productId" type="integer"></element>
+    		<element name="productName" type="string"></element>
+    		<element name="productDescription" type="string"></element>
+    		<element name="typeCode" type="string"></element>
+    		<element name="price" type="double"></element>
+    	</sequence>
+    </complexType>
+</schema>
