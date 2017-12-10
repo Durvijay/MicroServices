@@ -1,0 +1,73 @@
+package trng.imcs.hibernate.assignment4.bean;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+
+
+
+@Entity
+public class Payment {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer cardId;
+	private String cardNumber;
+	private String cardName;
+	private String cardType;
+	@ManyToOne
+	@JoinColumn(name = "customerId")
+	private Customer customer;
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public Integer getCardId() {
+		return cardId;
+	}
+
+	public void setCardId(Integer cardId) {
+		this.cardId = cardId;
+	}
+
+	public String getCardNumber() {
+		return cardNumber;
+	}
+
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+
+	public String getCardName() {
+		return cardName;
+	}
+
+	public void setCardName(String cardName) {
+		this.cardName = cardName;
+	}
+
+	public String getCardType() {
+		return cardType;
+	}
+
+	public void setCardType(String cardType) {
+		this.cardType = cardType;
+	}
+
+	@Override
+	public String toString() {
+		return "Payment [cardId=" + cardId + ", cardNumber=" + cardNumber + ", cardName=" + cardName + ", cardType="
+				+ cardType + "]";
+	}
+
+	
+}
